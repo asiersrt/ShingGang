@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHG</title>
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.1/mdb.min.css" rel="stylesheet" />
+    <style>
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .gradient {
+            --size: 250px;
+            --speed: 70s;
+            --easing: cubic-bezier(0.8, 0.2, 0.2, 0.8);
+
+            position: absolute; /* Fixes the background in place */
+            top: 50%;
+            left: 50%;
+            width: var(--size);
+            height: var(--size);
+            filter: blur(calc(var(--size) / 5));
+            background-image: linear-gradient(to top, #baff93, #9e5252); /* Custom colors */
+            animation: rotate var(--speed) var(--easing) alternate infinite;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            transform: translate(-50%, -50%); /* Centers the background */
+            z-index: -1; /* Puts the background behind everything else */
+        }
+
+        @media (min-width: 720px) {
+            .gradient {
+                --size: 500px;
+            }
+        }
+
+        body {
+            background-color: #000000; /* Retain your base color */
+            position: relative; /* Keeps your layout intact */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow-y: auto; /* Enables vertical scrolling */
+            text-align: center; /* Centers text and elements */
+        }
+
+        /* This is just to transition when you change the viewport size. */
+        * {
+            transition: all 0.5s ease-out;
+        }
+
+        @keyframes rotateText3D {
+    0% {
+        transform: rotateY(0deg);
+    }
+    50% {
+        transform: rotateY(180deg); /* Halfway through, flip the text */
+    }
+    100% {
+        transform: rotateY(360deg); /* Complete the rotation */
+    }
+}
+
+.shg-header {
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    display: inline-block;
+    animation: rotateText3D 10s linear infinite; /* Adjust timing for speed */
+    transform-style: preserve-3d; /* Ensures proper 3D effect */
+    perspective: 1000px; /* Adds depth to the 3D effect */
+    color: #ffffff;
+}
+
+        .form-container {
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .form-container input {
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            background-color: #acacac;
+            color: rgb(0, 0, 0);
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #808080;
+        }
+
+        .receipt {
+            width: 100%; /* Make it full width */
+            max-width: 400px; /* Set a max width for larger screens */
+            margin: 20px auto;
+            background-color: rgba(255, 255, 255); /* Slightly transparent background */
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            color: #333;
+            max-height: 60vh; /* Limit the max height of the receipt */
+            overflow-y: auto; /* Makes the receipt scrollable */
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center content in the receipt */
+        }
+
+        .receipt-header {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .receipt-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            align-items: center;
+            width: 100%;
+            max-width: 350px;
+        }
+
+        .receipt-item-name {
+            flex: 1;
+            text-align: left;
+        }
+
+        .receipt-item-price {
+            text-align: right;
+            flex: 1;
+            margin-left: 10px;
+        }
+
+        .delete-btn {
+            background-color: #f44336; /* Red button for delete */
+            color: white;
+            padding: 2px 5px; /* Smaller padding for a tinier button */
+            font-size: 10px; /* Smaller font size */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-left: 5px;
+        }
+
+        .delete-btn:hover {
+            background-color: #d32f2f;
+        }
+
+        /* Media Queries for responsiveness */
+        @media (max-width: 576px) {
+            .receipt {
+                width: 90%; /* Make it wider on small screens */
+                max-width: 100%; /* Allow it to take the full screen width */
+            }
+
+            .receipt-header {
+                font-size: 16px; /* Adjust header font size */
+            }
+
+            .receipt-item {
+                flex-direction: column; /* Stack items vertically */
+                align-items: flex-start; /* Align items to the start */
+            }
+
+            .receipt-item-price {
+                text-align: left; /* Align price to the left */
+                margin-top: 5px; /* Add some space above price */
+            }
+
+            button {
+                padding: 12px; /* Larger button for mobile */
+            }
+
+            .delete-btn {
+                padding: 2px 5px; /* Make sure the button stays small on mobile */
+                font-size: 10px; /* Keep the button text small on mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="gradient"></div>
+    <div class="shg-header">SHG 2024</div>
+    <div class="spotify-container">
+        <iframe src="https://open.spotify.com/embed/playlist/YOUR_PLAYLIST_ID" width="280" height="280" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+    </div>
+    <div class="form-container">
+        <form id="todo-form">
+            <input id="title-input" placeholder="Enter Item Name" class="form-control" required>
+            <input id="price-input" placeholder="Enter Price" type="number" step="0.01" class="form-control">
+            <button type="submit">Añadir</button>
+        </form>
+    </div>
+
+    <div class="receipt" id="todo_list">
+        <div class="receipt-header">Recibo</div>
+        <div class="receipt-header">-------------------------------------------------</div>
+        <!-- Todo items will be added here -->
+    </div>
+
+    <script>
+        const form = document.getElementById('todo-form');
+        const todoList = document.getElementById('todo_list');
+        const titleInput = document.getElementById('title-input');
+        const priceInput = document.getElementById('price-input');
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const itemName = titleInput.value;
+            const itemPrice = priceInput.value;
+
+            if (!itemName) return; // Allow for price to be empty
+
+            const receiptItem = document.createElement('div');
+            receiptItem.classList.add('receipt-item');
+
+            const itemNameElement = document.createElement('span');
+            itemNameElement.classList.add('receipt-item-name');
+            itemNameElement.textContent = itemName;
+
+            const itemPriceElement = document.createElement('span');
+            itemPriceElement.classList.add('receipt-item-price');
+            itemPriceElement.textContent = itemPrice ? `$${parseFloat(itemPrice).toFixed(2)}` : ''; // If no price, display 'Free'
+
+            const deleteButton = document.createElement('delete-button');
+            deleteButton.classList.add('delete-btn');
+            deleteButton.textContent = 'Delete';
+            deleteButton.addEventListener('click', function () {
+                todoList.removeChild(receiptItem);
+            });
+
+            receiptItem.appendChild(itemNameElement);
+            receiptItem.appendChild(itemPriceElement);
+            receiptItem.appendChild(deleteButton);
+            todoList.appendChild(receiptItem);
+
+            // Clear inputs after submission
+            titleInput.value = '';
+            priceInput.value = '';
+        });
+    </script>
+</body>
+</html>
