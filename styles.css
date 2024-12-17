@@ -63,9 +63,9 @@ transform: rotateY(360deg);
 }
 
 .shg-header {
+    margin-top: 5%;
 font-size: 50px;
 font-weight: bold;
-margin-bottom: 20px;
 display: inline-block;
 animation: rotateText3D 10s linear infinite; 
 transform-style: preserve-3d; 
