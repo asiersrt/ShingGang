@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHG</title>
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.1/mdb.min.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Gradient background -->
+    <div class="gradient"></div>
+
+    <!-- Header -->
+    <div class="shg-header">SHG 2024</div>
+
+    <!-- Containers Wrapper for both Spotify Embed and Form -->
+    <div class="containers-wrapper">
+        <!-- Spotify Embed -->
+        <div class="spotify-container">
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/49aAJZ7tQNO3kIRGwYuLQU?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+
+        <!-- Form container for item input -->
+        <div class="form-container">
+            <form id="todo-form">
+                <img src="./images/merca.png" alt="Logo" class="form-logo">
+                <input id="title-input" placeholder="que quieres" class="form-control" required>
+                <input id="price-input" placeholder="precio bro" type="number" step="0.01" class="form-control">
+                <button type="submit">Añadir</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Receipt container to display added items -->
+    <div class="receipt" id="todo_list">
+        <!-- Todo items will be added here dynamically -->
+    </div>
+    
+
+    <!-- Photo of Peru flag -->
+    <div class="photo-container">
+        <img src="./images/peru.jpg" alt="Peru Flag" class="photo" id="flag">
+        <div class="click-counter">Clicks: <span id="click-count">0</span></div>
+    </div>
+
+    <!-- Jumpscare Modal -->
+    <div id="jumpscare" class="jumpscare hidden">
+        <img src="./images/jumpscare.jpg" alt="Jumpscare Image" class="jumpscare-image">
+    </div>
+
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+
+    <div class="map-container">
+        <div class="map-container">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4749.550123624925!2d0.9648504587114465!3d41.275329348172085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a34054c40a48a7%3A0xeeb10b0a0cdbbca2!2sCarrer%20Fosc%2C%202%2C%2043365%20Arbol%C3%AD%2C%20Tarragona%2C%20Spain!5e0!3m2!1sen!2sus!4v1702821234567!5m2!1sen!2sus" 
+                width="400" 
+                height="300" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy">
+            </iframe>
+        </div>
+    </div>
+
+</body>
+</html>
