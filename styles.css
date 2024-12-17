@@ -339,7 +339,6 @@ button {
 
 /* Default styles for the map container */
 .map-container {
-    position: fixed;
     bottom: 20px;
     right: 20px;
     width: 300px;
